@@ -1,4 +1,4 @@
-module github.com/banky/eth-utils/anvil
+module github.com/banky/eth-utils
 
 go 1.25.4
 
