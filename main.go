@@ -1,19 +1,3 @@
-### Eth-utils is a go toolbox for Ethereum development
-
-Tools:
-- [**Anvil**](#Anvil): Go bindings for developing with Anvil
-
-## Installation
-
-```sh
-go get github.com/banky/eth-utils
-```
-
-## Anvil
-
-The anvil package provides a simple go interface for interacting with a forked blockchain using Anvil. It requires [foundry](https://github.com/foundry-rs/foundry/tree/master) to be installed on the system
-
-```go
 package main
 
 import (
@@ -26,7 +10,7 @@ import (
 func main() {
 	config := anvil.NewConfig().
 		SetForkURL("https://ethereum-rpc.publicnode.com").
-		SetShowLogs(true). // Print anvil logs to std out
+		SetShowLogs(true).
 		SetForkBlockNumber(20000000)
 	a, err := anvil.NewWithConfig(config)
 	if err != nil {
@@ -44,4 +28,3 @@ func main() {
 	fmt.Println("BlockNumber:", blockNumber)
 	// Prints BlockNumber: 20000000
 }
-``

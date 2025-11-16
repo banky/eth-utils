@@ -15,7 +15,7 @@ func TestAnvil_Impersonation(t *testing.T) {
 	}
 	defer anvl.Close()
 
-	addr := Account0
+	addr := account0
 
 	// anvil_impersonateAccount
 	if err := anvl.ImpersonateAccount(addr); err != nil {
@@ -95,7 +95,7 @@ func TestAnvil_StateMutations(t *testing.T) {
 	}
 	defer anvl.Close()
 
-	addr := Account0
+	addr := account0
 
 	// Balance
 	if err := anvl.SetBalance(addr, big.NewInt(0).Mul(big.NewInt(100), big.NewInt(1e18))); err != nil {
@@ -244,7 +244,7 @@ func TestAnvil_UnsignedTx(t *testing.T) {
 	defer anvl.Close()
 
 	tx := map[string]any{
-		"from":  Account0.Hex(),
+		"from":  account0.Hex(),
 		"to":    common.HexToAddress("0x0000000000000000000000000000000000000001").Hex(),
 		"value": "0x1",
 	}
@@ -306,7 +306,7 @@ func TestAnvil_Otterscan(t *testing.T) {
 	}
 	t.Logf("ots api level: %d", apiLevel)
 
-	addr := Account0
+	addr := account0
 	hasCode, err := anvl.OTSHasCode(addr, "latest")
 	if err != nil {
 		t.Fatalf("OTSHasCode failed: %v", err)

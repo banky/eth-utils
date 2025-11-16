@@ -8,279 +8,279 @@ import (
 func getArgs(c *Config) []string {
 	args := []string{}
 
-	if c.Accounts != 0 { // default
-		args = append(args, "--accounts", fmt.Sprint(c.Accounts))
+	if c.accounts != 0 { // default
+		args = append(args, "--accounts", fmt.Sprint(c.accounts))
 	}
 
-	if c.BlockTime != 0 {
-		args = append(args, "--block-time", fmt.Sprint(c.BlockTime))
+	if c.blockTime != 0 {
+		args = append(args, "--block-time", fmt.Sprint(c.blockTime))
 	}
 
-	if c.Balance != "" {
-		args = append(args, "--balance", c.Balance)
+	if c.balance != "" {
+		args = append(args, "--balance", c.balance)
 	}
 
-	if c.ConfigOut != "" {
-		args = append(args, "--config-out", c.ConfigOut)
+	if c.configOut != "" {
+		args = append(args, "--config-out", c.configOut)
 	}
 
-	if c.DerivationPath != "" {
-		args = append(args, "--derivation-path", c.DerivationPath)
+	if c.derivationPath != "" {
+		args = append(args, "--derivation-path", c.derivationPath)
 	}
 
-	if c.DumpStatePath != "" {
-		args = append(args, "--dump-state", c.DumpStatePath)
+	if c.dumpStatePath != "" {
+		args = append(args, "--dump-state", c.dumpStatePath)
 	}
 
-	if c.Hardfork != "" {
-		args = append(args, "--hardfork", c.Hardfork)
+	if c.hardfork != "" {
+		args = append(args, "--hardfork", c.hardfork)
 	}
 
-	if c.InitPath != "" {
-		args = append(args, "--init", c.InitPath)
+	if c.initPath != "" {
+		args = append(args, "--init", c.initPath)
 	}
 
-	if c.IPC {
-		if c.IPCPath == "" {
+	if c.ipc {
+		if c.ipcPath == "" {
 			args = append(args, "--ipc")
 		} else {
-			args = append(args, "--ipc", c.IPCPath)
+			args = append(args, "--ipc", c.ipcPath)
 		}
 	}
 
-	if c.Threads != 0 {
-		args = append(args, "--threads", fmt.Sprint(c.Threads))
+	if c.threads != 0 {
+		args = append(args, "--threads", fmt.Sprint(c.threads))
 	}
 
-	if c.LoadStatePath != "" {
-		args = append(args, "--load-state", c.LoadStatePath)
+	if c.loadStatePath != "" {
+		args = append(args, "--load-state", c.loadStatePath)
 	}
 
-	if c.Mnemonic != "" {
-		args = append(args, "--mnemonic", c.Mnemonic)
+	if c.mnemonic != "" {
+		args = append(args, "--mnemonic", c.mnemonic)
 	}
 
-	if c.MaxPersistedStates != 0 {
-		args = append(args, "--max-persisted-states", fmt.Sprint(c.MaxPersistedStates))
+	if c.maxPersistedStates != 0 {
+		args = append(args, "--max-persisted-states", fmt.Sprint(c.maxPersistedStates))
 	}
 
-	if c.MixedMining {
+	if c.mixedMining {
 		args = append(args, "--mixed-mining")
 	}
 
-	if c.MnemonicRandom {
-		if c.MnemonicRandomWords == 0 {
+	if c.mnemonicRandom {
+		if c.mnemonicRandomWords == 0 {
 			args = append(args, "--mnemonic-random")
 		} else {
-			args = append(args, "--mnemonic-random", fmt.Sprint(c.MnemonicRandomWords))
+			args = append(args, "--mnemonic-random", fmt.Sprint(c.mnemonicRandomWords))
 		}
 	}
 
-	if c.MnemonicSeedUnsafe != "" {
-		args = append(args, "--mnemonic-seed-unsafe", c.MnemonicSeedUnsafe)
+	if c.mnemonicSeedUnsafe != "" {
+		args = append(args, "--mnemonic-seed-unsafe", c.mnemonicSeedUnsafe)
 	}
 
-	if c.NoMining {
+	if c.noMining {
 		args = append(args, "--no-mining")
 	}
 
-	if c.Number != 0 {
-		args = append(args, "--number", fmt.Sprint(c.Number))
+	if c.number != 0 {
+		args = append(args, "--number", fmt.Sprint(c.number))
 	}
 
-	if c.Order != "" && c.Order != "fees" {
-		args = append(args, "--order", c.Order)
+	if c.order != "" && c.order != "fees" {
+		args = append(args, "--order", c.order)
 	}
 
-	if c.Port != 0 {
-		args = append(args, "--port", fmt.Sprint(c.Port))
+	if c.port != 0 {
+		args = append(args, "--port", fmt.Sprint(c.port))
 	}
 
-	if c.PreserveHistoricalStates {
+	if c.preserveHistoricalStates {
 		args = append(args, "--preserve-historical-states")
 	}
 
-	if c.PruneHistory {
-		if c.PruneHistoryStates == 0 {
+	if c.pruneHistory {
+		if c.pruneHistoryStates == 0 {
 			args = append(args, "--prune-history")
 		} else {
-			args = append(args, "--prune-history", fmt.Sprint(c.PruneHistoryStates))
+			args = append(args, "--prune-history", fmt.Sprint(c.pruneHistoryStates))
 		}
 	}
 
-	if c.StateInterval != 0 {
-		args = append(args, "--state-interval", fmt.Sprint(c.StateInterval))
+	if c.stateInterval != 0 {
+		args = append(args, "--state-interval", fmt.Sprint(c.stateInterval))
 	}
 
-	if c.SlotsInEpoch != 0 {
-		args = append(args, "--slots-in-an-epoch", fmt.Sprint(c.SlotsInEpoch))
+	if c.slotsInEpoch != 0 {
+		args = append(args, "--slots-in-an-epoch", fmt.Sprint(c.slotsInEpoch))
 	}
 
-	if c.StatePath != "" {
-		args = append(args, "--state", c.StatePath)
+	if c.statePath != "" {
+		args = append(args, "--state", c.statePath)
 	}
 
-	if c.Timestamp != 0 {
-		args = append(args, "--timestamp", fmt.Sprint(c.Timestamp))
+	if c.timestamp != 0 {
+		args = append(args, "--timestamp", fmt.Sprint(c.timestamp))
 	}
 
-	if c.TransactionBlockKeeper != 0 {
-		args = append(args, "--transaction-block-keeper", fmt.Sprint(c.TransactionBlockKeeper))
+	if c.transactionBlockKeeper != 0 {
+		args = append(args, "--transaction-block-keeper", fmt.Sprint(c.transactionBlockKeeper))
 	}
 
-	if c.Color != "" {
-		args = append(args, "--color", c.Color)
+	if c.color != "" {
+		args = append(args, "--color", c.color)
 	}
 
-	if c.JSONLogs {
+	if c.jsonLogs {
 		args = append(args, "--json")
 	}
 
-	if c.MarkdownLogs {
+	if c.markdownLogs {
 		args = append(args, "--md")
 	}
 
-	if c.Quiet {
+	if c.quiet {
 		args = append(args, "--quiet")
 	}
 
-	if c.Verbosity > 0 {
-		vv := "-" + strings.Repeat("v", c.Verbosity)
+	if c.verbosity > 0 {
+		vv := "-" + strings.Repeat("v", c.verbosity)
 		args = append(args, vv)
 	}
 
-	if c.AllowOrigin != "" {
-		args = append(args, "--allow-origin", c.AllowOrigin)
+	if c.allowOrigin != "" {
+		args = append(args, "--allow-origin", c.allowOrigin)
 	}
 
-	if c.CachePath != "" {
-		args = append(args, "--cache-path", c.CachePath)
+	if c.cachePath != "" {
+		args = append(args, "--cache-path", c.cachePath)
 	}
 
-	if c.Host != "" {
-		args = append(args, "--host", c.Host)
+	if c.host != "" {
+		args = append(args, "--host", c.host)
 	}
 
-	if c.NoCors {
+	if c.noCors {
 		args = append(args, "--no-cors")
 	}
 
-	if c.NoRequestSizeLimit {
+	if c.noRequestSizeLimit {
 		args = append(args, "--no-request-size-limit")
 	}
 
-	if c.ComputeUnitsPerSecond != 0 {
-		args = append(args, "--compute-units-per-second", fmt.Sprint(c.ComputeUnitsPerSecond))
+	if c.computeUnitsPerSecond != 0 {
+		args = append(args, "--compute-units-per-second", fmt.Sprint(c.computeUnitsPerSecond))
 	}
 
-	if c.ForkURL != "" {
-		args = append(args, "--fork-url", c.ForkURL)
+	if c.forkURL != "" {
+		args = append(args, "--fork-url", c.forkURL)
 	}
 
-	if c.ForkBlockNumber != 0 {
-		args = append(args, "--fork-block-number", fmt.Sprint(c.ForkBlockNumber))
+	if c.forkBlockNumber != 0 {
+		args = append(args, "--fork-block-number", fmt.Sprint(c.forkBlockNumber))
 	}
 
-	if c.ForkChainID != 0 {
-		args = append(args, "--fork-chain-id", fmt.Sprint(c.ForkChainID))
+	if c.forkChainID != 0 {
+		args = append(args, "--fork-chain-id", fmt.Sprint(c.forkChainID))
 	}
 
-	if len(c.ForkHeaders) > 0 {
+	if len(c.forkHeaders) > 0 {
 		args = append(args, "--fork-header")
-		for _, h := range c.ForkHeaders {
+		for _, h := range c.forkHeaders {
 			args = append(args, h)
 		}
 	}
 
-	if c.ForkRetryBackoff != "" {
-		args = append(args, "--fork-retry-backoff", c.ForkRetryBackoff)
+	if c.forkRetryBackoff != "" {
+		args = append(args, "--fork-retry-backoff", c.forkRetryBackoff)
 	}
 
-	if c.ForkTransactionHash != "" {
-		args = append(args, "--fork-transaction-hash", c.ForkTransactionHash)
+	if c.forkTransactionHash != "" {
+		args = append(args, "--fork-transaction-hash", c.forkTransactionHash)
 	}
 
-	if c.NoRateLimit {
+	if c.noRateLimit {
 		args = append(args, "--no-rate-limit")
 	}
 
-	if c.NoStorageCaching {
+	if c.noStorageCaching {
 		args = append(args, "--no-storage-caching")
 	}
 
-	if c.Retries != 0 {
-		args = append(args, "--retries", fmt.Sprint(c.Retries))
+	if c.retries != 0 {
+		args = append(args, "--retries", fmt.Sprint(c.retries))
 	}
 
-	if c.Timeout != "" {
-		args = append(args, "--timeout", c.Timeout)
+	if c.timeout != "" {
+		args = append(args, "--timeout", c.timeout)
 	}
 
-	if c.BlockBaseFeePerGas != "" {
-		args = append(args, "--block-base-fee-per-gas", c.BlockBaseFeePerGas)
+	if c.blockBaseFeePerGas != "" {
+		args = append(args, "--block-base-fee-per-gas", c.blockBaseFeePerGas)
 	}
 
-	if c.ChainID != 0 {
-		args = append(args, "--chain-id", fmt.Sprint(c.ChainID))
+	if c.chainID != 0 {
+		args = append(args, "--chain-id", fmt.Sprint(c.chainID))
 	}
 
-	if c.CodeSizeLimit != 0 {
-		args = append(args, "--code-size-limit", fmt.Sprintf("0x%x", c.CodeSizeLimit))
+	if c.codeSizeLimit != 0 {
+		args = append(args, "--code-size-limit", fmt.Sprintf("0x%x", c.codeSizeLimit))
 	}
 
-	if c.DisableBlockGasLimit {
+	if c.disableBlockGasLimit {
 		args = append(args, "--disable-block-gas-limit")
 	}
 
-	if c.DisableCodeSizeLimit {
+	if c.disableCodeSizeLimit {
 		args = append(args, "--disable-code-size-limit")
 	}
 
-	if c.DisableMinPriorityFee {
+	if c.disableMinPriorityFee {
 		args = append(args, "--disable-min-priority-fee")
 	}
 
-	if c.GasLimit != 0 {
-		args = append(args, "--gas-limit", fmt.Sprint(c.GasLimit))
+	if c.gasLimit != 0 {
+		args = append(args, "--gas-limit", fmt.Sprint(c.gasLimit))
 	}
 
-	if c.GasPrice != "" {
-		args = append(args, "--gas-price", c.GasPrice)
+	if c.gasPrice != "" {
+		args = append(args, "--gas-price", c.gasPrice)
 	}
 
-	if c.AutoImpersonate {
+	if c.autoImpersonate {
 		args = append(args, "--auto-impersonate")
 	}
 
-	if c.DisableConsoleLog {
+	if c.disableConsoleLog {
 		args = append(args, "--disable-console-log")
 	}
 
-	if c.DisableDefaultCreate2Deployer {
+	if c.disableDefaultCreate2Deployer {
 		args = append(args, "--disable-default-create2-deployer")
 	}
 
-	if c.DisablePoolBalanceChecks {
+	if c.disablePoolBalanceChecks {
 		args = append(args, "--disable-pool-balance-checks")
 	}
 
-	if c.MemoryLimit != 0 {
-		args = append(args, "--memory-limit", fmt.Sprint(c.MemoryLimit))
+	if c.memoryLimit != 0 {
+		args = append(args, "--memory-limit", fmt.Sprint(c.memoryLimit))
 	}
 
-	if c.PrintTraces {
+	if c.printTraces {
 		args = append(args, "--print-traces")
 	}
 
-	if c.StepsTracing {
+	if c.stepsTracing {
 		args = append(args, "--steps-tracing")
 	}
 
-	if c.Celo {
+	if c.celo {
 		args = append(args, "--celo")
 	}
 
-	if c.Optimism {
+	if c.optimism {
 		args = append(args, "--optimism")
 	}
 

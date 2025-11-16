@@ -35,7 +35,7 @@ func NewWithConfig(config *Config) (Anvil, error) {
 	args := getArgs(config)
 
 	cmd := exec.Command("anvil", args...)
-	if config.ShowLogs {
+	if config.showLogs {
 		cmd.Stdout = os.Stdout
 		cmd.Stderr = os.Stderr
 	}
@@ -45,19 +45,16 @@ func NewWithConfig(config *Config) (Anvil, error) {
 		return Anvil{}, fmt.Errorf("Failed to start Anvil: %v", err)
 	}
 
-	// Wait for Anvil to start
-	// time.Sleep(1 * time.Second)
-
 	var port uint = 8545 // Default port
-	if config.Port != 0 {
-		port = config.Port
+	if config.port != 0 {
+		port = config.port
 	}
 
 	url := fmt.Sprintf("http://localhost:%d", port)
 	wsUrl := fmt.Sprintf("ws://localhost:%d", port)
 
 	rpcUrl := url
-	if strings.Contains(config.ForkURL, "ws") {
+	if strings.HasPrefix(config.forkURL, "ws") {
 		rpcUrl = wsUrl
 	}
 
@@ -70,16 +67,17 @@ func NewWithConfig(config *Config) (Anvil, error) {
 
 	// Wait until client is ready
 	startedSuccessfully := false
-	for range 100 {
+	for range 1000 {
 		_, err := ethClient.BlockNumber(
 			context.Background(),
 		)
 		if err != nil {
-			time.Sleep(10 * time.Millisecond)
+			time.Sleep(100 * time.Millisecond)
 			continue
 		}
 
 		startedSuccessfully = true
+		break
 	}
 
 	if !startedSuccessfully {
